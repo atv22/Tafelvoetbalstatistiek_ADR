@@ -26,6 +26,12 @@ scores <- sheet %>% gs_read("scores")
 matches <- sheet %>% gs_read("matches")
 players <- sheet %>% gs_read("players")
 
+list_players <- as.list(players$player_name)
+names(list_players) <- players$player_name
+
+list_positions <- as.list(c("voor","achter"))
+names(list_positions) <- c("voor", "achter")
+
 #Optional: test if input has worked
 #summary(players)
 

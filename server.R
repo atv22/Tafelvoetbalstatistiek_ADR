@@ -10,14 +10,14 @@ observeEvent(input$newMatch,{
   rv$matches <- sheet %>% gs_read("matches")
   df <- data.frame(match_id=max(matches$match_id)+1,
                    date=Sys.time(),
-                   player_a1="testa1",
-                   position_a1="voor",
-                   player_a2="testa2",
-                   position_a2="achter",
-                   player_b1="testb1",
-                   position_b1="achter",
-                   player_b2="testa1",
-                   position_b2="voor")
+                   player_a1=input$selecta1,
+                   position_a1=input$selecta1_pos,
+                   player_a2=input$selecta2,
+                   position_a2=input$selecta2_pos,
+                   player_b1=input$selectb1,
+                   position_b1=input$selectb1_pos,
+                   player_b2=input$selectb2,
+                   position_b2=input$selectb2_pos)
   gs_add_row(sheet,ws="matches",input=df[1,],verbose=F)
   rv$matches <- sheet %>% gs_read("matches")
 
